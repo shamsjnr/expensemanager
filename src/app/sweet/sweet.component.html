@@ -1,0 +1,53 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="table-responsive">
+        <table class="table table-hovered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>title</th>
+              <th>type</th>
+              <th width="20px">amount</th>
+              <th width="20px">option</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <form [formGroup]="form" (ngSubmit)="doSubmit()">
+        <div class="form-floating mb-2">
+          <input type="text" id="title" class="form-control" formControlName="extitle" placeholder="Title">
+          <label for="title">Title</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="number" id="amount" class="form-control" formControlName="examount" placeholder="Amount">
+          <label for="amount">Amount</label>
+        </div>
+        <div class="mb-2 text-center">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" checked formControlName="extype" id="exdebit" value="debit">
+            <label class="form-check-label" for="exdebit">Debit</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="extype" id="excredit" value="credit">
+            <label class="form-check-label" for="excredit">Credit</label>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-success py-2 px-3 rounded-5" [disabled]="form.invalid">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
