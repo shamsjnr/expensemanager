@@ -1,0 +1,14 @@
+div.row, div.col-md-3, div.col-md-9 {
+  height: 100%;
+}
+.col-md-3 button {
+  width: 100%;
+  display: block;
+  text-align: center;
+  background-color: #fc3;
+  border: none;
+  padding: 24px;
+}
+.col-md-3 button.active {
+  background-color: #fc36;
+}

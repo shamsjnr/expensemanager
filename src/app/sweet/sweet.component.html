@@ -1,8 +1,8 @@
 <div class="container p-5">
-  <div class="row">
+  <div class="row no-gutters">
     <div class="col-md-8">
       <div class="table-responsive">
-        <table class="table table-hovered">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th>#</th>
@@ -13,12 +13,24 @@
             </tr>
           </thead>
           <tbody>
+            <tr *ngFor="let exp of expenseData$ | async; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ exp.title }}</td>
+              <td ngClass="text-{{ (exp.type == 'credit') ? 'success' : 'danger' }}">{{ exp.type }}</td>
+              <td class="text-end">{{ exp.amount | currency:'N' }}</td>
+              <td class="text-nowrap py-1">
+                <a href="javascript:void(0)" class="btn mx-1 btn-success" (click)="doMod(exp.id)">&#9998;</a>
+                <a href="javascript:void(0)" class="btn mx-1 px-3 btn-danger" (click)="doDrop(exp.id)"><b>x</b></a>
+                <!-- <button class="dropdown-toggle" data-toggle="dropdown">Action</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a href="#" class="dropdown-item" (click)="doMod(exp.id)">Edit</a>
+                  <a href="#" class="dropdown-item" (click)="doDrop(exp.id)">Delete</a>
+                </div> -->
+              </td>
+            </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td colspan="3">Total</td>
+              <td colspan="2" class="text-end">{{ total$ | async | currency:'N' }}</td>
             </tr>
           </tbody>
         </table>
@@ -45,7 +57,7 @@
           </div>
         </div>
         <div>
-          <button type="submit" class="btn btn-success py-2 px-3 rounded-5" [disabled]="form.invalid">Login</button>
+          <button type="submit" class="btn btn-success py-2 px-3 rounded-5" [disabled]="form.invalid">Save</button>
         </div>
       </form>
     </div>

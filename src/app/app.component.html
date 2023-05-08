@@ -1,2 +1,10 @@
-<router-outlet></router-outlet>
+<div class="row">
+  <div class="col-md-3 border-right border-success pt-5">
+    <button routerLink="/" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">Home</button>
+    <button routerLink="/euphoria" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Expenses</button>
+  </div>
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
 <app-notifire></app-notifire>
